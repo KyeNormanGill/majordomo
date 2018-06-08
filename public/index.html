@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script defer src="/js/fontawesome-all.min.js"></script>
+	<link rel="icon" href="/images/favicon.png" type="image/png">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>Majordomo</title>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="header">
+			<img :src="info.avatar" alt="avatarURL">
+			<h1>{{ info.username }}</h1>
+		</div>
+		<div class="main">
+			<div class="row">
+				<div class="column size-1">
+					<button @click="joinChannel" class="channel-button join-button">JOIN CURRENT CHANNEL</button>
+				</div>
+				<div class="column size-1">
+					<button @click="leaveChannel" class="channel-button leave-button">LEAVE CURRENT CHANNEL</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column size-3 centered-items">
+					<button @click="play" class="music-button play">
+						<i class="fas fa-play"></i>
+					</button>
+					<button @click="pause" class="music-button pause">
+						<i class="fas fa-pause"></i>
+					</button>
+					<button @click="skip" class="music-button skip">
+						<i class="fas fa-arrow-right"></i>
+					</button>
+					<button @click="stop" class="music-button stop">
+						<i class="fas fa-stop"></i>
+					</button>
+				</div>
+				<div class="column size-2 queue-box">
+					<p class="queue-text">Queue a song</p>
+					<input class="url-input" type="text" v-model="url" placeholder="url">
+					<button @click="queueSong" class="queue-button">QUEUE</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column size-1">
+					<table class="song-table">
+						<thead>
+							<tr>
+								<th>
+									SongName
+								</th>
+								<th>
+									URL
+								</th>
+								<th>
+									Length
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="song in songs">
+								<td>{{song.name}}</td>
+								<td><a :href="song.URL" target="_blank">{{song.URL}}</a></td>
+								<td>{{song.length}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="/js/vue.js"></script>
+	<script src="/js/main.js"></script>
+</body>
+</html>

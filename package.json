@@ -1,0 +1,19 @@
+{
+  "name": "majordomo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:hydrabolt/discord.js",
+    "express": "^4.16.2",
+    "node-opus": "^0.2.7",
+    "simple-youtube-api": "^5.0.1",
+    "ytdl-core": "^0.20.1"
+  },
+  "description": ""
+}
